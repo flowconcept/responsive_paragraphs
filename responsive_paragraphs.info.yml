@@ -1,0 +1,7 @@
+name: Responsive Paragraphs
+type: module
+description: Allows editors to apply bootstrap responsive utitlity classes to paragraphs using classier_paragraphs.
+package: Paragraphs
+core: 8.x
+dependencies:
+  - classier_paragraphs

@@ -1,0 +1,21 @@
+<?php
+/**
+ * Implements hook_classier_paragraphs_form().
+ */
+function responsive_paragraphs_classier_paragraphs_form($entity_type, $bundle, $item) {
+  $element['responsive'] = [
+    '#type' => 'checkboxes',
+    '#title' => t('Responsive visibility'),
+    '#description' => t('Sets content visibility based on bootstrap breakpoints. If none are checked content is visible all the time'),
+    '#options' => [
+      'visible-xs-block' => t('Visible below 768 px.'),
+      'visible-sm-block' => t('Visible between 768 px and 992 px.'),
+      'visible-md-block' => t('Visible between 992 px and 1200 px.'),
+      'visible-lg-block' => t('Visible above 1200 px.'),
+    ],
+    '#default_value' => isset($item->responsive) ? $item->responsive : [],
+    '#access' => \Drupal::currentUser()->hasPermission('edit paragraphs responsive visibility')
+  ];
+
+  return $element;
+}

@@ -1,0 +1,17 @@
+{
+  "name": "flowconcept/responsive_paragraphs",
+  "description": "Allows editors to apply bootstrap responsive utitlity classes to paragraphs using classier_paragraphs",
+  "version": "master",
+  "type": "drupal-module",
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/flowconcept/classier_paragraphs.git"
+    }
+  ],
+  "license": "GPL-2.0+",
+  "minimum-stability": "dev",
+  "require": {
+    "flowconcept/classier_paragraphs": "8.x-1.x-dev"
+  }
+}
