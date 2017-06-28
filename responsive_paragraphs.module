@@ -14,7 +14,7 @@ function responsive_paragraphs_classier_paragraphs_form($entity_type, $bundle, $
       'visible-lg-block' => t('Visible above 1200 px.'),
     ],
     '#default_value' => isset($item->responsive) ? $item->responsive : [],
-    '#access' => \Drupal::currentUser()->hasPermission('edit paragraphs responsive visibility')
+    '#disabled' => !(\Drupal::currentUser()->hasPermission('edit paragraphs responsive visibility')),
   ];
 
   return $element;
