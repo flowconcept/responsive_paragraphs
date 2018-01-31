@@ -4,18 +4,34 @@
  */
 function responsive_paragraphs_classier_paragraphs_form($entity_type, $bundle, $item) {
   $element['responsive'] = [
-    '#type' => 'checkboxes',
+    '#type' => 'details',
+    '#open' => FALSE,
     '#title' => t('Responsive visibility'),
-    '#description' => t('Sets content visibility based on bootstrap breakpoints. If none are checked content is visible all the time'),
-    '#options' => [
-      'visible-xs-block' => t('Visible below 768 px.'),
-      'visible-sm-block' => t('Visible between 768 px and 992 px.'),
-      'visible-md-block' => t('Visible between 992 px and 1200 px.'),
-      'visible-lg-block' => t('Visible above 1200 px.'),
+    '#description' => t('Sets content visibility based on bootstrap breakpoints.'),
+    'responsive_options_up' => [
+      '#type' => 'radios',
+      '#title' => t('.hidden-*-down'),
+      '#options' => [
+        '' => t('None'),
+        'd-none d-sm-block' => t('Hidden below 544 px.'),
+        'd-none d-md-block' => t('Hidden below 768 px.'),
+        'd-none d-lg-block' => t('Hidden below 992 px.'),
+        'd-none d-xl-block' => t('Hidden below 1200 px.'),
+      ],
+      '#default_value' => isset($item->responsive['responsive_options_up']) ? $item->responsive['responsive_options_up'] : '',
     ],
-    '#default_value' => isset($item->responsive) ? $item->responsive : [],
-    '#disabled' => !(\Drupal::currentUser()->hasPermission('edit paragraphs responsive visibility')),
+    'responsive_options_down' => [
+      '#type' => 'radios',
+      '#title' => t('.hidden-*-up'),
+      '#options' => [
+        '' => t('None'),
+        'd-sm-none' => t('Hidden above 575 px.'),
+        'd-md-none' => t('Hidden above 767 px.'),
+        'd-lg-none' => t('Hidden above 991 px.'),
+        'd-xl-none' => t('Hidden above 1199 px.'),
+      ],
+      '#default_value' => isset($item->responsive['responsive_options_down']) ? $item->responsive['responsive_options_down'] : '',
+    ],
   ];
-
   return $element;
 }
