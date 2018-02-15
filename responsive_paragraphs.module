@@ -13,7 +13,7 @@ function responsive_paragraphs_classier_paragraphs_form($entity_type, $bundle, $
       '#title' => t('.hidden-*-down'),
       '#options' => [
         '' => t('None'),
-        'd-none d-sm-block' => t('Hidden below 575 px.'),
+        'd-none d-sm-block' => t('Hidden below 576 px.'),
         'd-none d-md-block' => t('Hidden below 768 px.'),
         'd-none d-lg-block' => t('Hidden below 992 px.'),
         'd-none d-xl-block' => t('Hidden below 1200 px.'),
